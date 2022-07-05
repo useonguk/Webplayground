@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+    <meta charset="UTF-8">
+    <title>나만의 웹</title>
+    </head>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        *{
+            box-sizing:border-box;
+        }
+        body{
+            background-color:#eee;
+            font-size: 16px;
+        }
+        #wrapper{
+            display: grid;
+            grid-template-rows:respeat(auto-fix,minmax(320px,1fr));
+            grid-gap:lrem;
+        }
+        .card{
+            background-color: #fff;
+            box-shadow: 0px 1px 5px;
+        }
+        .card > header{
+            font-size:1.5rem;
+            padding:0.5px;
+        }
+        .card > p{
+            padding:0.5rem;
+            line-height:1.6em;
+        }
+        .card > img{
+            max-width: 100%;
+        }
+    </style>
+    <body>
+    <div id="wrapper">
+        <div class="card">
+            <header>
+                <h3 style="color:greenyellow">NAVER</h3>
+            </header>
+            <figure>
+                <img src="Naver.jpg">
+            </figure>
+            <a href="naver.com">네이버</a>
+            <a href="https://section.blog.naver.com/BlogHome.nhn?directoryNo=0&currentPage=1&groupId=0">네이버 블로그</a>
+            <p>사진 설명 : 네이버</p>
+        </div>
+        <div class="card">
+            <header>
+                <h3 style="color:blue">DISCORD</h3>
+            </header>
+            <figure>
+                <img src="discord.png">
+            </figure>
+            <a href="https://support.discord.com/hc/ko">디스코드 바로안가기</a>
+            <p>사진 설명 : discord</p>
+        </div>
+        <div class="card">
+            <header>
+                <h3 style="color:pink">INSTAGRAM</h3>
+            </header>
+            <figure>
+                <img src="인스타.jpg">
+            </figure>
+            <a href="https://www.instagram.com">인스타 바로 안가기</a>
+            <p>사진 설명 : instagram</p>
+        </div>
+        <div class="card">
+            <header>
+                <h3 style="color:red">YOUTUBE</h3>
+            </header>
+            <figure>
+                <img src="Utube_pic.png">
+            </figure>
+            <ul>
+                <a href="https://www.youtube.com">유튜브 바로안가기</a> 
+                <a href="https://www.youtube.com" style="color:yellow">진자림</a>
+                <a href="https://www.youtube.com" style="color:palevioletred">우정잉</a>  
+            </ul>
+            
+            <p>사진 설명 : 그냥 유튜브</p>
+        </div>
+    </div>
+    </body>
+</html>
