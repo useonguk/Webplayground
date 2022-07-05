@@ -58,14 +58,15 @@ img{
     </style>
 </head>
 <body>
-    <button class="tablink" onclick="openPage('Web', this, 'red')">Web</button>
+    <button class="tablink" onclick="openPage('Web', this, 'red')">소계</button>
 <button class="tablink" onclick="openPage('App', this, 'green')" id="defaultOpen">App</button>
 <button class="tablink" onclick="openPage('Game', this, 'blue')">Game</button>
 <button class="tablink" onclick="openPage('Youtube', this, 'orange')">Youtube</button>
 
 <div id="Web" class="tabcontent">
-  <h3>WEB</h3>
-  <p><a href="https://hangang.ivlis.kr/">한강</a></p>
+  <h3>웹 소계</h3>
+  <img id="img" src="Naver.jpg">
+  <button onclick="clickEvent()">바뀌다!!!</button>
 </div>
 
 <div id="App" class="tabcontent">
@@ -112,6 +113,9 @@ img{
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+function clickEvent(){
+  document.getElementById("img").src = "discord.png";
+}
       </script>
 </div>
 </body>
