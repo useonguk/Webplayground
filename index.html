@@ -91,6 +91,13 @@ img{
 
 <div id="App" class="tabcontent">
   <h3>APP</h3>
+  <div id="container">
+    <img src="Naver.jpg">
+    <img src="인스타.jpg">
+    <img src="discord.png">
+    <button id="prev">&lang;</button>
+    <button id="next">&rang;</button>
+  </div>
   <a href="https://naver.com"><img src="Naver.jpg"></a>
   <a href="https://www.instagram.com"><img src="인스타.jpg"></a>
   <a href="https://www.discord.com"><img src="discord.png"></a>
@@ -110,6 +117,39 @@ img{
   
 </div>
       <script>
+        //사진 넘기기
+        const slides = document.querySelectorAll("#container > img");
+        const prev = document.querySelector("#prev");
+        const next = document.querySelector("#next");
+        let current = 0;
+
+        showSlide(current);
+        prev.addEventListener("click", prevSlide);
+        next.addEventListener("click", nextSlide);
+
+        function showSlide(n){
+          for(let i=0;i<slides.length;i++){
+            slides[i].style.display = "none";
+          }
+          slides[n].style.display = "block";
+        }
+
+        function prevSlide(){
+          if(current > 0){
+            current -= 1;
+          }
+          else current = slides.length -1 ;
+          showSlide(current);
+        }
+
+        function nextSlide(){
+          if(current < slides.length - 1){
+            current += 1;
+          }
+          else current = 0;
+          showSlide(current);
+        }
+
    function openPage(pageName, elmnt, color) {
   // Hide all elements with class="tabcontent" by default */
   var i, tabcontent, tablinks;
@@ -135,6 +175,9 @@ img{
 document.getElementById("defaultOpen").click();
 function clickEvent(){
   document.getElementById("img").src = "discord.png";
+}
+function clickEvent(){
+  document.getElementById("img").src = "Naver.jpg";
 }
       </script>
 </div>
