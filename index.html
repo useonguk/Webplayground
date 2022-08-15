@@ -64,6 +64,65 @@ img{
   height:200px;
   border: 2px solid black;
 }
+#lst{
+  box-sizing:border-box;
+  width:600px;
+  margin:0 auto;
+}
+#lst > form{
+  background-color:#007acc;
+  padding:30px 40px;
+  color: yellowgreen;
+  text-align:center;
+}
+#lst > input{
+  border:none;
+  width:440px;
+  padding:10px;
+  float:left;
+  font-size:16px;
+}
+.addBtn{
+  padding:10px;
+  width:50px;
+  border:none;
+  background-color:#fff;
+  box-shadow:1px 2px 4px #167dae;
+  color:#555;
+  text-align:center;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.3;
+}
+form::after{
+  content:"";
+  display:table;
+  clear:both;
+}
+#itemList > ul {
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+#itemList > ul li{
+  cursor:pointer;
+  position:relative;
+  padding:12px 8px 12px 40px;
+  background:#eee;
+  font-size:18px;
+  transition: 0.2s;
+}
+#itemList > ul li:nth-child(odd){
+  background-color:#f9f9f9;
+}
+#itemList > ul li:hover{
+  background-color:#ddd;
+}
+.close:hover{
+  background-color:#007acc;
+  color:white;
+}
+#lst
     </style>
 </head>
 <body>
@@ -106,6 +165,13 @@ img{
 <div id="Game" class="tabcontent">
   <h3>GAME</h3>
   <p><a href="https://tetris.com"><strong>테트리스</strong>바로가기</a></p>
+  <div id="lst">
+    <from>
+      <input type="text" id="item" autofocus="true">
+      <button type="button" id="add" class="addBtn">추가</button>
+    </from>
+    <div id="itemList"></div>
+  </div>
 </div>
 
 <div id="Youtube" class="tabcontent">
@@ -179,6 +245,45 @@ function clickEvent(){
 function clickEvent(){
   document.getElementById("img").src = "Naver.jpg";
 }
+//할 목록
+var itemList = [];
+		
+		var addBtn = document.querySelector("#add");
+		addBtn.addEventListener("click", addList);
+		
+		function showList(){
+			
+			var list = "<ul>";
+			for(var i=0; i<itemList.length; i++){
+				list += "<li>" + itemList[i] + "<span class='close' id="+ i +">X</span></li>";
+			}
+			list += "</ul>";
+			
+			document.querySelector("#itemList").innerHTML = list;
+			
+			var remove = document.querySelectorAll(".close");
+			
+			for (var i=0; i<remove.length; i++){
+				remove[i].addEventListener("click",removeList);
+			}
+		}
+
+		function addList(){
+			var item = document.querySelector("#item").value;
+			
+			if (item !== '') {
+				itemList.push(item);
+				document.querySelector("#item").value = "";
+				document.querySelector("#item").focus();
+			}
+			showList();
+		}
+		
+		function removeList(){
+			var id = this.getAttribute("id");
+			itemList.splice(id, 1);
+			showList();
+		}
       </script>
 </div>
 </body>
