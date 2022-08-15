@@ -213,14 +213,56 @@ body{
     background-color: #8a8277;
     transition-duration:2s;
 }
->
+/*login page*/
+.channel{
+  height: 100%;
+  box-sizing: border-box;
+}
+.bg-text{
+  background-color: rgb(0,0,0);
+  background-color:rgba(0,0,0,0.4);
+  color: white;
+  font-weight:bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+  width:80%;
+  padding: 10px;
+  text-align: center;
+  margin-top:50px;
+}
+.channel> .btn{
+  border: 2px solid black;
+  background-color: white;
+  color:black;
+  padding: 12px 26px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.success{
+  border-color: darkgray;
+  color: black;
+}
+
+.success:hover{
+  background-color: gray;
+  color:white;
+}
+.channel > a{
+  text-decoration-line: none;
+  color: black;
+}
+
     </style>
 </head>
 <body>
     <button class="tablink" onclick="openPage('Web', this, 'red')">소계</button>
 <button class="tablink" onclick="openPage('App', this, 'green')" id="defaultOpen">App</button>
 <button class="tablink" onclick="openPage('Game', this, 'blue')">Game</button>
-<button class="tablink" onclick="openPage('Youtube', this, 'orange')">Youtube</button>
+<button class="tablink" onclick="openPage('Youtube', this, 'orange')">LogIn</button>
 
 <div id="Web" class="tabcontent">
   <h1>웹 소계</h1>
@@ -288,10 +330,26 @@ body{
 </div>
 
 <div id="Youtube" class="tabcontent">
-    <a href="https://www.youtube.com"><img src="Utube_pic.png"></a>
-  <h3>YOUTUBE</h3>
   <div class="channel">
-    <a href="https://www.youtube.com/friendshiping94"><img src="잉찡이.png"></a>
+    <div class="bg-text">
+      <div id="subtitle">
+        <h1 style="color: black;">LOGIN</h1>
+      </div>
+      <p>
+        "ID | "
+        <input type="text" name="id" id="id"
+      </p>
+      <p>
+        "PW | "
+        <input type="text" name="pw" id="pw" style="-webkit-text-security: disc;">
+      </p>
+      <button onclick="login()">로그인</button>
+      <button onclick="login()">회원가입</button>
+      <p id="demo"></p>
+      <button class="btn success">
+        <a href="index.html">main</a>
+      </button>
+    </div>
   </div>
   
 </div>
@@ -425,7 +483,11 @@ for(let i=0;i<rottoNum.length; i++){
   }, i*1000);
 }
 }
-      </script>
+//login page
+  function login(){
+    document.getElementById("demo").innerHTML = "구현 X";
+  }
+</script>
 </div>
 </body>
 </html>
